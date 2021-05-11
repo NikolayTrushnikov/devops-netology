@@ -1,4 +1,4 @@
-"Hello, friend
+Hello, friend
 
 trush@LAPTOP-P5O96TSS MINGW64 /d/learning/git
 $ git clone https://github.com/NikolayTrushnikov/devops-netology.git devops-netology
