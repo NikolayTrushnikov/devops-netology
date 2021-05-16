@@ -1,1 +1,3 @@
 Hello, friend
+NEW LINE
+
