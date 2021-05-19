@@ -4,6 +4,7 @@
 count=1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 for param in "$*"; do
     echo "\$* Parameter #$count = $param"
     count=$(( $count + 1 ))
@@ -26,8 +27,11 @@ for param in "$*"; do
 while [[ -n "$1" ]]; do
     echo "Parameter #$count = $1"
 >>>>>>> 9f4e244e11f353a89bb2ab40313e9c1c6c9e63c0
+=======
+for param in "$*"; do
+    echo "\$* Parameter #$count = $param"
+>>>>>>> f7155f6 (Revert "Merge branch 'git-merge' into git-rebase")
     count=$(( $count + 1 ))
-    shift
 done
 
 >>>>>>> deec6677f647c6451d9bc3c7322bc16943c6097e
