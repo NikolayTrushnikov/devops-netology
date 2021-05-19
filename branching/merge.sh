@@ -3,10 +3,17 @@
 
 count=1
 <<<<<<< HEAD
+<<<<<<< HEAD
 for param in "$*"; do
     echo "\$* Parameter #$count = $param"
     count=$(( $count + 1 ))
 <<<<<<< HEAD
+=======
+while [[ -n "$1" ]]; do
+    echo "Parameter #$count = $1"
+    count=$(( $count + 1 ))
+    shift
+>>>>>>> git-merge
 done
 =======
 done#!/bin/bash
