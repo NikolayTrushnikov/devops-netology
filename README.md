@@ -70,18 +70,43 @@ HISTFILESIZE
 11. --
 
 
-12. добавил в PATH. Ничего не изменилось. Запутался в конец. 
+12. Создал папку /tmp/new_path_directory/, скопировал туда bash, добавил в PATH. Заработало. Потом добавил копию bash в /usr/local/bin/.
+
+vagrant@vagrant:/$ cp /bin/bash /tmp/new_path_directory/
+cp: '/bin/bash' and '/tmp/new_path_directory/bash' are the same file
+vagrant@vagrant:/$ PATH=$PATH:/tmp/new_path_directory/
+vagrant@vagrant:/$ type -a bash
+bash is /usr/bin/bash
+bash is /bin/bash
+bash is /tmp/new_path_directory/bash
+vagrant@vagrant:/usr/lo
+
+cal/bin$ sudo cp /bin/bash /usr/local/bin/
+vagrant@vagrant:/usr/local/bin$ type -a bash
+bash is /usr/local/bin/bash
+bash is /usr/bin/bash
+bash is /bin/bash
+bash is /tmp/new_path_directory/bash
+vagrant@vagrant:/usr/local/bin$ PATH=/tmp/new_path_directory/:$PATH
+vagrant@vagrant:/usr/local/bin$ type -a bash
+bash is /tmp/new_path_directory/bash
+bash is /usr/local/bin/bash
+bash is /usr/bin/bash
+bash is /bin/bash
+bash is /tmp/new_path_directory/bash
+
+# потом в /etc/environment изменил по нормальному последовательность и сохранил, потом применил source /etc/environment
+# bash is /tmp/new_path_directory/bash - пропала и не могу добавить
+
 vagrant@vagrant:/$ sudo vi /etc/environment
 vagrant@vagrant:/$ echo $PATH
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 vagrant@vagrant:/$ source /etc/environment
 vagrant@vagrant:/$ echo $PATH
 /tmp/new_path_directory/bash:/usr/local/bin/bash:/bin/bash:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-vagrant@vagrant:/$ type -a bash
-bash is /usr/bin/bash
-bash is /bin/bash
 
 vagrant@vagrant:/$ type -a bash
+bash is /usr/local/bin/bash
 bash is /usr/bin/bash
 bash is /bin/bash
 
