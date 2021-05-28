@@ -60,5 +60,19 @@ HISTFILESIZE
  
 8.2   Ignoreboth в переменной HISTCONTROL устанавливает оба значения директив Ignoredups и Ignorespace (Не писать строку после команды дублирования строки и не писать строки, начинающиеся с одного или нескольких пробелов в истории).
 
+9. {} - для указания диапазона повторений
  
-   
+10. touch file{1..100000}
+300000 создать не получилось:
+ vagrant@vagrant:~$ touch file{1..300000}
+-bash: /usr/bin/touch: Argument list too long
+
+
+ 13.    at - выполняет задачи в назначенное время
+        batch - выполняет задачи во время перидов низкой загруженности
+vagrant@vagrant:/$ echo "good_evening" | at 21:35
+warning: commands will be executed using /bin/sh
+job 1 at Fri May 28 21:35:00 2021
+vagrant@vagrant:/$ echo "good_evening" | batch
+warning: commands will be executed using /bin/sh
+job 2 at Fri May 28 15:31:00 2021
