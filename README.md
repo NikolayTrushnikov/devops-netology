@@ -67,6 +67,24 @@ HISTFILESIZE
  vagrant@vagrant:~$ touch file{1..300000}
 -bash: /usr/bin/touch: Argument list too long
 
+11. --
+
+
+12. добавил в PATH. Ничего не изменилось. Запутался в конец. 
+vagrant@vagrant:/$ sudo vi /etc/environment
+vagrant@vagrant:/$ echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+vagrant@vagrant:/$ source /etc/environment
+vagrant@vagrant:/$ echo $PATH
+/tmp/new_path_directory/bash:/usr/local/bin/bash:/bin/bash:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+vagrant@vagrant:/$ type -a bash
+bash is /usr/bin/bash
+bash is /bin/bash
+
+vagrant@vagrant:/$ type -a bash
+bash is /usr/bin/bash
+bash is /bin/bash
+
 
  13.    at - выполняет задачи в назначенное время
         batch - выполняет задачи во время перидов низкой загруженности
