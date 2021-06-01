@@ -1,121 +1,35 @@
 
+# Домашнее задание к занятию "3.2. Работа в терминале, лекция 2"
+
+1.  Встроенная в оболочку команда
+vagrant@vagrant:~$ type cd
+cd is a shell builtin
+
+2. альтернатива: grep -c
+vagrant@vagrant:~/my_folder$ grep -c "hello" hello.txt
 
 
-4. Уже установленный VirtualBox 
-trush@LAPTOP-P5O96TSS MINGW64 /d/learning/Vagrant
-$ vagrant up
-Bringing machine 'default' up with 'virtualbox' provider...
-==> default: Checking if box 'bento/ubuntu-20.04' version '202105.25.0' is up to date...
-==> default: Clearing any previously set forwarded ports...
-==> default: Clearing any previously set network interfaces...
-==> default: Preparing network interfaces based on configuration...
-    default: Adapter 1: nat
-==> default: Forwarding ports...
-    default: 22 (guest) => 2222 (host) (adapter 1)
-==> default: Booting VM...
-==> default: Waiting for machine to boot. This may take a few minutes...
-    default: SSH address: 127.0.0.1:2222
-    default: SSH username: vagrant
-    default: SSH auth method: private key
-==> default: Machine booted and ready!
-==> default: Checking for guest additions in VM...
-==> default: Mounting shared folders...
-    default: /vagrant => D:/learning/Vagrant
-==> default: Machine already provisioned. Run `vagrant provision` or use the `--provision`
-==> default: flag to force provisioning. Provisioners marked to run always will still run.
-
-
-
-7. 
-trush@LAPTOP-P5O96TSS MINGW64 /d/learning/Vagrant
-$ vagrant ssh
-Welcome to Ubuntu 20.04.2 LTS (GNU/Linux 5.4.0-73-generic x86_64)
-
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/advantage
-
-  System information as of Wed 26 May 2021 11:18:57 AM UTC
-
-  System load:  0.0               Processes:             115
-  Usage of /:   2.4% of 61.31GB   Users logged in:       0
-  Memory usage: 14%               IPv4 address for eth0: 10.0.2.15
-  Swap usage:   0%
-
-
-This system is built by the Bento project by Chef Software
-More information can be found at https://github.com/chef/bento
-
-8.1. line 1155
-HISTFILESIZE
-              The maximum number of lines contained in the history file.  When
-              this variable is assigned a value, the  history  file  is  trun‐
-              cated,  if  necessary,  to  contain  no more than that number of
-              lines by removing the oldest entries.  The history file is  also
-              truncated  to this size after writing it when a shell exits.  If
-              the value is 0, the history file  is  truncated  to  zero  size.
-              Non-numeric  values  and  numeric  values less than zero inhibit
-              truncation.  The shell sets the default value to  the  value  of
-              HISTSIZE after reading any startup files.
- 
-8.2   Ignoreboth в переменной HISTCONTROL устанавливает оба значения директив Ignoredups и Ignorespace (Не писать строку после команды дублирования строки и не писать строки, начинающиеся с одного или нескольких пробелов в истории).
-
-9. {} - для указания диапазона повторений
- 
-10. touch file{1..100000}
-300000 создать не получилось:
- vagrant@vagrant:~$ touch file{1..300000}
--bash: /usr/bin/touch: Argument list too long
-
-11. --
-
-
-12. Создал папку /tmp/new_path_directory/, скопировал туда bash, добавил в PATH. Заработало. Потом добавил копию bash в /usr/local/bin/.
-
-vagrant@vagrant:/$ cp /bin/bash /tmp/new_path_directory/
-cp: '/bin/bash' and '/tmp/new_path_directory/bash' are the same file
-vagrant@vagrant:/$ PATH=$PATH:/tmp/new_path_directory/
-vagrant@vagrant:/$ type -a bash
-bash is /usr/bin/bash
-bash is /bin/bash
-bash is /tmp/new_path_directory/bash
-vagrant@vagrant:/usr/lo
-
-cal/bin$ sudo cp /bin/bash /usr/local/bin/
-vagrant@vagrant:/usr/local/bin$ type -a bash
-bash is /usr/local/bin/bash
-bash is /usr/bin/bash
-bash is /bin/bash
-bash is /tmp/new_path_directory/bash
-vagrant@vagrant:/usr/local/bin$ PATH=/tmp/new_path_directory/:$PATH
-vagrant@vagrant:/usr/local/bin$ type -a bash
-bash is /tmp/new_path_directory/bash
-bash is /usr/local/bin/bash
-bash is /usr/bin/bash
-bash is /bin/bash
-bash is /tmp/new_path_directory/bash
-
-# потом в /etc/environment изменил по нормальному последовательность и сохранил, потом применил source /etc/environment
-# bash is /tmp/new_path_directory/bash - пропала и не могу добавить
-
-vagrant@vagrant:/$ sudo vi /etc/environment
-vagrant@vagrant:/$ echo $PATH
-/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-vagrant@vagrant:/$ source /etc/environment
-vagrant@vagrant:/$ echo $PATH
-/tmp/new_path_directory/bash:/usr/local/bin/bash:/bin/bash:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-
-vagrant@vagrant:/$ type -a bash
-bash is /usr/local/bin/bash
-bash is /usr/bin/bash
-bash is /bin/bash
-
-
- 13.    at - выполняет задачи в назначенное время
-        batch - выполняет задачи во время перидов низкой загруженности
-vagrant@vagrant:/$ echo "good_evening" | at 21:35
-warning: commands will be executed using /bin/sh
-job 1 at Fri May 28 21:35:00 2021
-vagrant@vagrant:/$ echo "good_evening" | batch
-warning: commands will be executed using /bin/sh
-job 2 at Fri May 28 15:31:00 2021
+3. 
+vagrant@vagrant:~$ pstree -p | grep 1
+systemd(1)-+-VBoxService(996)-+-{VBoxService}(1000)
+           |                  |-{VBoxService}(1001)
+           |                  |-{VBoxService}(1002)
+           |                  |-{VBoxService}(1003)
+           |                  |-{VBoxService}(1004)
+           |                  |-{VBoxService}(1005)
+           |                  |-{VBoxService}(1006)
+           |                  `-{VBoxService}(1007)
+           |-agetty(2315)
+           |-cron(2291)
+           |-fwupd(13785)-+-{fwupd}(13788)
+           |              |-{fwupd}(13789)
+           |              |-{fwupd}(13790)
+           |              `-{fwupd}(13791)
+           |-irqbalance(607)---{irqbalance}(612)
+           |                 |-{multipathd}(531)
+           |-sshd(2299)---sshd(13094)---sshd(13142)---bash(13143)-+-grep(13854)
+           |                                                      `-pstree(13853)
+           |-systemd(13107)---(sd-pam)(13108)
+           |-systemd-logind(613)
+           
+4. 
