@@ -44,7 +44,7 @@ vagrant@vagrant:~$ tty
 /dev/pts/1
 ls: cannot access '123': No such file or directory
 
-5. vagrant@vagrant:~$ cat file1 > file2
+5. vagrant@vagrant:~/my_folder$ cat > file2 < file1
 
 6. да
 vagrant@vagrant:~$ tty
@@ -54,9 +54,10 @@ vagrant@vagrant:~$
 
 7. bash 5>&1 перенаправляем файловый дексриптор 5 в поток вывода 1. echo netology > /proc/$$/fd/5, перенаправляем netology в дескриптор 5 и получаем стандартный вывод на экран.
 
-8. В таком виде grep нашел и выделил "No", если перенаправление не делать, на экран выводилась просто ошибка
-vagrant@vagrant:~$ cat file3 7>&1 2>&7 | grep "No"
-cat: file3: No such file or directory
+8. grep находит слово file и в обычном выводе и в ошибке
+vagrant@vagrant:~/my_folder$ ls file2 file7 7>&1 2>&7 | grep file
+ls: cannot access 'file7': No such file or directory
+file2
 
 9. 
 cat /proc/$$/environ выведет все переменные среды окружения для текущего PID
