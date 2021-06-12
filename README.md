@@ -58,3 +58,16 @@ vagrant@vagrant:~$
 vagrant@vagrant:~$ cat file3 7>&1 2>&7 | grep "No"
 cat: file3: No such file or directory
 
+9. 
+cat /proc/$$/environ выведет все переменные среды окружения для текущего PID
+xargs -0 -L1 -a /proc/$$/environ
+
+аналогичный по содержанию ответ можно получить командой env:
+vagrant@vagrant:~$ env
+
+10. /proc/<PID>/cmdline этот файл, доступный только для чтения, содержит полную командную строку для процесса, если только процесс не является зомби.
+
+           
+           
+           
+           
