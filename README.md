@@ -76,4 +76,24 @@ vagrant@vagrant:~$ env
 -t Переназначение псевдо-терминала
 vagrant@vagrant:~$ ssh -t localhost "tty"
 
-13. 
+13. root@vagrant:/home/vagrant# reptyr -T 1816
+           
+root@vagrant:/home/vagrant# echo 0 > /proc/sys/kernel/yama/ptrace_scope        
+root@vagrant:/home/vagrant# cat /proc/sys/kernel/yama/ptrace_scope
+0          
+root@vagrant:/home/vagrant# ps a
+    PID TTY      STAT   TIME COMMAND
+    677 tty1     Ss     0:00 /bin/login -p --
+   1174 tty1     S+     0:00 -bash
+   1816 pts/1    Ss+    0:00 -bash
+   3287 pts/3    Ss     0:00 -bash
+   3336 pts/1    S      0:00 ping yandex.ru
+   3355 pts/3    S      0:00 sudo su
+   3356 pts/3    S      0:00 su
+   3357 pts/3    S      0:00 bash
+   3379 pts/3    R+     0:00 ps a           
+root@vagrant:/home/vagrant# reptyr -T 1816
+64 bytes from yandex.ru (5.255.255.5): icmp_seq=649 ttl=52 time=39.3 ms
+64 bytes from yandex.ru (5.255.255.5): icmp_seq=650 ttl=52 time=39.3 ms 
+           
+14.
