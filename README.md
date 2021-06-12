@@ -52,5 +52,9 @@ vagrant@vagrant:~$ tty
 vagrant@vagrant:~$ echo netology > /dev/tty1
 vagrant@vagrant:~$
 
-7. bash 5>&1 перенаправляем файловый дексриптор 5 в поток вывода
+7. bash 5>&1 перенаправляем файловый дексриптор 5 в поток вывода 1. echo netology > /proc/$$/fd/5, перенаправляем netology в дескриптор 5 и получаем стандартный вывод на экран.
+
+8. В таком виде grep нашел и выделил "No", если перенаправление не делать, на экран выводилась просто ошибка
+vagrant@vagrant:~$ cat file3 7>&1 2>&7 | grep "No"
+cat: file3: No such file or directory
 
