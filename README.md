@@ -1,9 +1,11 @@
 
 # Домашнее задание к занятию "3.2. Работа в терминале, лекция 2"
 
-1.  Встроенная в оболочку команда
+1.  Встроенная в оболочку команда, встроенная функция Bash не разветвляется на подпроцесс. По этой причине встроенные функции выполняются быстрее и используют меньше системных ресурсов, чем их внешние командные эквиваленты.
 vagrant@vagrant:~$ type cd
 cd is a shell builtin
+
+
 
 2. альтернатива: grep -c
 vagrant@vagrant:~/my_folder$ grep -c "hello" hello.txt
@@ -33,3 +35,22 @@ systemd(1)-+-VBoxService(996)-+-{VBoxService}(1000)
            |-systemd-logind(613)
            
 4. 
+vagrant@vagrant:~$ tty
+/dev/pts/0
+vagrant@vagrant:~$ ls 123 2> /dev/pts/1
+
+
+vagrant@vagrant:~$ tty
+/dev/pts/1
+ls: cannot access '123': No such file or directory
+
+5. vagrant@vagrant:~$ cat file1 > file2
+
+6. да
+vagrant@vagrant:~$ tty
+/dev/pts/0
+vagrant@vagrant:~$ echo netology > /dev/tty1
+vagrant@vagrant:~$
+
+7. bash 5>&1 перенаправляем файловый дексриптор 5 в поток вывода
+
