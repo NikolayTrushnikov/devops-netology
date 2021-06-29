@@ -35,4 +35,12 @@ lrwx------ 1 root    root    64 Jun 29 10:05 3 -> 'socket:[38981]'
 lrwx------ 1 root    root    64 Jun 29 10:05 4 -> 'socket:[38982]'
 vagrant@vagrant:~$ kill -TERM 1363
 
-4.
+4. zombie использует ресурсы ядра. До тех пор пока zombie не удален из системы, он будет использовать слот в таблице процессов ядра, и если эта таблица заполнится, создание новых процессов будет невозможно.
+
+5.
+/etc/ld.so.cache
+/lib/x86_64-linux-gnu/libselinux.so.1
+/lib/x86_64-linux-gnu/libc.so.6
+
+
+
