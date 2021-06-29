@@ -42,5 +42,16 @@ vagrant@vagrant:~$ kill -TERM 1363
 /lib/x86_64-linux-gnu/libselinux.so.1
 /lib/x86_64-linux-gnu/libc.so.6
 
+6.
+uname -a использует системный вызов uname
+uname({sysname="Linux", nodename="vagrant", ...}) = 0
+# Приведите цитату из man по этому системному вызову, где описывается альтернативное местоположение в /proc:
+Part of the utsname information is also accessible via /proc/sys/kernel/{ostype, hostname, osrelease, version, domainname}. 
 
+vagrant@vagrant:~$ cat /proc/version
+Linux version 5.4.0-73-generic (buildd@lcy01-amd64-019) (gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)) #82-Ubuntu SMP Wed Apr 14 17:39:42 UTC 2021
 
+7. Через ; команды выполняются последовательно, в независимости от того успешно ли каждая из них выполнена. А через && вторая команда выполняется только если первая успешна.
+Eсли использовать set -e, && будет выполняться как ; 
+
+8. 
