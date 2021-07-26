@@ -18,18 +18,18 @@
 
 2. Исправный скрипт:
 
-        ```bash
-                vagrant@vagrant:~$ while ((1==1))
+                ```bash
+                while ((1==1))
                 do
-                curl https://localhost:4757
-                if (($? != 0))
-                then
-                date >> curl.log
-                else
-                date >> curl.log && break
-                fi
+                        curl https://localhost:4757
+                        if (($? != 0))
+                        then
+                        date >> curl.log
+                        else
+                        date >> curl.log && break
+                        fi
                 done
-        ```
+                ```
 
 3. Скрипт, который проверяет доступность трёх IP:
 
