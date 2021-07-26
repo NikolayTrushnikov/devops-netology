@@ -17,16 +17,16 @@
         3       т.к. есть $ и две круглые скобки, в переменные подставляются из значение и переменные складываются.
 
 1. Скрипт:
-                vagrant@vagrant:~$ while ((1==1))
-                do
-                        curl https://localhost:4757
-                        if (($? != 0))
-                        then
-                        date >> curl.log
-                        else
-                        date >> curl.log && break
-                        fi
-                done
+        vagrant@vagrant:~$ while ((1==1))
+        do
+        curl https://localhost:4757
+        if (($? != 0))
+        then
+        date >> curl.log
+        else
+        date >> curl.log && break
+        fi
+        done
 
 1. Скрипт:
                 a=0
