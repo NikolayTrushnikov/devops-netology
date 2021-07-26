@@ -17,6 +17,7 @@
         3       т.к. есть $ и две круглые скобки, в переменные подставляются из значение и переменные складываются.
 
 1. Скрипт:
+        ```bash
         vagrant@vagrant:~$ while ((1==1))
         do
         curl https://localhost:4757
@@ -27,8 +28,10 @@
         date >> curl.log && break
         fi
         done
+        ```
 
 1. Скрипт:
+                ```bash
                 a=0
                 while ((1==1))
                 do
@@ -39,4 +42,4 @@
                         break
                         fi
                 done
-
+                ```
