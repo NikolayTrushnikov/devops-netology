@@ -16,9 +16,8 @@
 
 2.
 	Выводится полный путь к директории локального репозитория
-	
 	Выводятся модифицированные файлы
-
+	```python3
 	#!/usr/bin/env python3
 
 	import os
@@ -34,10 +33,10 @@
     	  if re.findall('modified', result):
             prepare_result = result.replace('\tmodified: ', '')
             print(f'Модифицированный файл:\n', prepare_result)
-
+	```
 3.
 	Дополнил скрипт возможностью ручного ввода:
-	
+	```python3
 	print('Введите путь к локальному репозиторию: ')
 	repo1 = input()
 	bash_command2 = [f"cd {repo1}", "git status"]
@@ -46,7 +45,7 @@
     	  if re.findall('modified', result):
             prepare_result = result.replace('\tmodified: ', '')
             print(f'Модифицированный файл:\n', prepare_result)
-
+	```
 4.
 	
 	- Вводим url
@@ -55,7 +54,7 @@
 	- обновляем ip в файл file_ip1.log
 	- дозаписываем соответствие url - ip, ,а также дату и время запроса, в file_ip.log
 	- сравниваем старый и новый ip
-	
+	```python3
 	import socket
 	import datetime
 
@@ -83,3 +82,4 @@
     	  print('ip адрес тотже')
 	else:
     	  print(f'[ERROR] <URL {url1}> IP mismatch: <{old_ip}> <{new_ip1}>')
+	```
