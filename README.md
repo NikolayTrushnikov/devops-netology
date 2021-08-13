@@ -16,11 +16,13 @@
 
 2.
 	Выводится полный путь к директории локального репозитория
+	
 	Выводятся модифицированные файлы
 
 	#!/usr/bin/env python3
 
 	import os
+	
 	import re
 
 	bash_command1 = ["cd ~/my_folder", "pwd"]
